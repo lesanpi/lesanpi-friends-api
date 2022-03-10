@@ -1,0 +1,6 @@
+PUT http://localhost:3001/api/friends/622974b0547365353aa24909
+Content-Type: application/json
+
+{
+"email": "ana@lesanpi.com", "name": "ana patricia figueira"
+}

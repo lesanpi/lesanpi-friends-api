@@ -2,5 +2,5 @@ POST http://localhost:3001/api/friends
 Content-Type: application/json
 
 {
-"email": "lesanpi@lesanpi.com", "name": "lesanpi"
+"email": "ana@lesanpi.com", "name": "ana patricia"
 }

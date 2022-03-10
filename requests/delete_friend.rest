@@ -1,0 +1,1 @@
+DELETE http://localhost:3001/api/friends/622831bc6c496ef7950a7804

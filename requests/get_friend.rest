@@ -1,0 +1,2 @@
+GET http://localhost:3001/api/friends/622831eb0f18bada6cf003aa
+Content-Type: application/json
