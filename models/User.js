@@ -1,10 +1,26 @@
 const { Schema, model } = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-    email: String,
-    password: String,
-    name: String
+    email: {
+        type: String,
+        unique: true
+    },
+    passwordHash: String,
+    name: String,
+    friends: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    friendRequestsSent: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    friendRequestsReceived: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
 }, { collection: 'users' })
 
 userSchema.methods.encryptPassword = (password) => {
@@ -20,8 +36,11 @@ userSchema.set('toJSON', {
         returnedObject.id = returnedObject._id
         delete returnedObject._id
         delete returnedObject.__v
+
+        delete returnedObject.passwordHash
     }
 })
 
+userSchema.plugin(uniqueValidator)
 const User = model('User', userSchema)
 module.exports = User
