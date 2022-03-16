@@ -2,22 +2,26 @@ const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
 const User = require('../models/User')
 
-usersRouter.get('/', (request, response) => {
-    User.find({}).populate('friends', {
-        content: 1,
-        date: 1
-    }).populate('friendRequestsSent', {
-        content: 1,
-        date: 1
-    }).populate('friendRequestsReceived', {
-        content: 1,
-        date: 1
-    }).then(users => {
+usersRouter.get('/', async (request, response) => {
+    try {
+        const users = await User.find({})
+            .populate('friends', {
+                content: 1,
+                date: 1
+            })
+            .populate('friendRequestsSent', {
+                content: 1,
+                date: 1
+            })
+            .populate('friendRequestsReceived', {
+                content: 1,
+                date: 1
+            })
+
         response.json(users)
-    }).catch(err => {
-        console.log(err)
-        next(err)
-    })
+    } catch (error) {
+        next(error)
+    }
 })
 
 usersRouter.post('/', async (request, response) => {
@@ -51,8 +55,15 @@ usersRouter.post('/', async (request, response) => {
         passwordHash
     })
 
-    const savedUser = await user.save()
-    response.json(savedUser)
+    user.save()
+        .then(
+            savedUser => response.json(savedUser)
+        ).catch(
+            err => response.status(400).json({
+                error: 'User already registered'
+            })
+        )
+
 })
 
 module.exports = usersRouter
