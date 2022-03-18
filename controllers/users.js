@@ -6,20 +6,24 @@ usersRouter.get('/', async (request, response) => {
     try {
         const users = await User.find({})
             .populate('friends', {
-                content: 1,
-                date: 1
+                email: 1,
+                name: 1,
+                friends: 1
             })
             .populate('friendRequestsSent', {
-                content: 1,
-                date: 1
+                email: 1,
+                name: 1,
+                friends: 1
             })
             .populate('friendRequestsReceived', {
-                content: 1,
-                date: 1
+                email: 1,
+                name: 1,
+                friends: 1
             })
 
         response.json(users)
     } catch (error) {
+        console.error(error)
         next(error)
     }
 })
@@ -59,9 +63,12 @@ usersRouter.post('/', async (request, response) => {
         .then(
             savedUser => response.json(savedUser)
         ).catch(
-            err => response.status(400).json({
-                error: 'User already registered'
-            })
+            err => {
+                console.log(err)
+                response.status(400).json({
+                    error: 'User already registered'
+                })
+            }
         )
 
 })

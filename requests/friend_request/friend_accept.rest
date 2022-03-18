@@ -1,0 +1,3 @@
+POST http://localhost:3001/api/friends/accept/62338ca9cc4f4e7aa3334380
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzM4Yzk2NDAyY2Q5ZGRiM2YzNGVlNSIsImVtYWlsIjoiYW5hQGxlc2FucGkuY29tIiwiaWF0IjoxNjQ3NTU2NTA5fQ.xpcRCT5scTjKKzi5rV0JE3PsnHS1Hd2njil2XgRh8Cw

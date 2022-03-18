@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development nodemon index.js",
 		"start": "cross-env NODE_ENV=production node index.js",
-		"test": "cross-env NODE_ENV=test jest --verbose --silent",
+		"test": "cross-env NODE_ENV=test jest --verbose  ",
 		"test:watch": "npm run test -- --watch"
 	},
 	"author": "lesanpi",
@@ -16,6 +16,7 @@
 		"cross-env": "^7.0.3",
 		"dotenv": "^16.0.0",
 		"express": "^4.17.3",
+		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^6.2.4",
 		"mongoose-unique-validator": "^3.0.0",
 		"morgan": "^1.10.0"

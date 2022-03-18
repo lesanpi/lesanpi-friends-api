@@ -11,15 +11,15 @@ const userSchema = new Schema({
     name: String,
     friends: [{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     }],
     friendRequestsSent: [{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     }],
     friendRequestsReceived: [{
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     }],
 }, { collection: 'users' })
 
@@ -41,6 +41,6 @@ userSchema.set('toJSON', {
     }
 })
 
-userSchema.plugin(uniqueValidator)
+// userSchema.plugin(uniqueValidator)
 const User = model('User', userSchema)
 module.exports = User

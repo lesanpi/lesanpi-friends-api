@@ -8,10 +8,13 @@ if (!connectionString) {
 }
 
 mongoose.connect(connectionString, { dbName: 'lesanpifriends' })
-    .then(db => console.log('Database connected.'))
+    .then(db => {
+        // console.log('Database connected.')
+    })
     .catch(err => console.log('Error connecting with the Database\n', err))
 
 
-process.on('uncaughtException', () => {
+process.on('uncaughtException', error => {
+    console.error(error)
     mongoose.disconnect();
 })

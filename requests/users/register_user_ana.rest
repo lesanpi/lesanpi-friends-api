@@ -2,5 +2,5 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
 {
-"email": "ana2@lesanpi.com", "name": "ana patricia", "password": "anita"
+"email": "ana@lesanpi.com", "name": "ana", "password": "anita"
 }

@@ -1,0 +1,3 @@
+DELETE http://localhost:3001/api/friends/request/62338c96402cd9ddb3f34ee5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzM4Y2E5Y2M0ZjRlN2FhMzMzNDM4MCIsImVtYWlsIjoibGVzYW5waUBsZXNhbnBpLmNvbSIsImlhdCI6MTY0NzU0NjIzNX0.3-vmquaknnoMiD4gj9YJa7ZYsP1WSNURqDTFraEMll8
